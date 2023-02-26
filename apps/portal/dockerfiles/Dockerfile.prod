@@ -1,0 +1,26 @@
+######## STAGE 1: Build
+FROM node:18-alpine3.15 as builder
+
+
+WORKDIR /app
+
+RUN npm cache clean --force
+
+# Install dependencies
+COPY package*.json ./
+
+RUN apk add --update python3 make g++ \
+    && rm -rf /var/cache/apk/*
+
+RUN npm i
+
+COPY . .
+
+RUN npx nx build portal
+
+######## Stage 2: Run
+FROM nginx as server
+
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=builder /app/dist/apps/portal /usr/share/nginx/html
+COPY ./apps/portal/nginx.conf /etc/nginx/nginx.conf
