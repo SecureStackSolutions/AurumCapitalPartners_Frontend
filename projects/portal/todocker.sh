@@ -1,2 +1,2 @@
-docker build -f dockerfiles/Dockerfile.prod -t lakleij/aurum-capital-partners-portal --platform linux/amd64 ../../
-docker push lakleij/aurum-capital-partners-portal
+docker build -f dockerfiles/Dockerfile.prod -t securestacksolutions/aurumcapitalpartners_portal --platform linux/amd64 ../../
+docker push securestacksolutions/aurumcapitalpartners_portal

@@ -1,8 +1,8 @@
 version: '3.9'
 services:
-  frontend:
+  portal:
     build:
       context: ../../
       dockerfile: ./projects/portal/dockerfiles/Dockerfile.prod
     ports:
-      - 8102:8100
+      - 8201:8100

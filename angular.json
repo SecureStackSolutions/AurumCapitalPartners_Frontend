@@ -114,7 +114,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/global-site/browser",
+            "outputPath": "dist/global-site",
             "index": "projects/global-site/src/index.html",
             "main": "projects/global-site/src/main.ts",
             "polyfills": [
@@ -194,60 +194,6 @@
             ],
             "scripts": []
           }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/global-site/server",
-            "main": "projects/global-site/server.ts",
-            "tsConfig": "projects/global-site/tsconfig.server.json",
-            "inlineStyleLanguage": "scss"
-          },
-          "configurations": {
-            "production": {
-              "outputHashing": "media"
-            },
-            "development": {
-              "optimization": false,
-              "sourceMap": true,
-              "extractLicenses": false,
-              "vendorChunk": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
-          "configurations": {
-            "development": {
-              "browserTarget": "global-site:build:development",
-              "serverTarget": "global-site:server:development"
-            },
-            "production": {
-              "browserTarget": "global-site:build:production",
-              "serverTarget": "global-site:server:production"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "prerender": {
-          "builder": "@nguniversal/builders:prerender",
-          "options": {
-            "routes": [
-              "/"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "global-site:build:production",
-              "serverTarget": "global-site:server:production"
-            },
-            "development": {
-              "browserTarget": "global-site:build:development",
-              "serverTarget": "global-site:server:development"
-            }
-          },
-          "defaultConfiguration": "production"
         }
       }
     }

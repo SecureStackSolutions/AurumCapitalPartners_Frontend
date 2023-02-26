@@ -1,6 +1,6 @@
 version: '3.9'
 services:
-  frontend:
+  globalsite:
     build:
       context: ../../
       dockerfile: ./projects/global-site/dockerfiles/Dockerfile.prod
