@@ -8,7 +8,7 @@
     "build:portal": "ng build portal",
     "build:global-site": "ng build global-site",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
