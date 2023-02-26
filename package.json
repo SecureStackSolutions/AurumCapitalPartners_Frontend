@@ -4,18 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start:portal": "ng serve portal --host 0.0.0.0",
-    "start:global-site:spa": "ng serve global-site --host 0.0.0.0",
-    "start:global-site:ssr": "ng run global-site:serve-ssr --host 0.0.0.0",
-    "start:global-site:ssg": "npx scully serve --ks --project global-site --host 0.0.0.0",
+    "start:global-site": "ng serve global-site --host 0.0.0.0",
     "build:portal": "ng build portal",
     "build:global-site": "ng build global-site",
-    "build:global-site:ssg": "build:global-site && npx scully --project global-site --scanRoutes",
-    "build:global-site:ssr": "build:global-site && ng run global-site:server",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "dev:ssr": "ng run global-site:serve-ssr",
-    "build:ssr": "ng build && ng run global-site:server",
-    "prerender": "ng run global-site:prerender"
   },
   "private": true,
   "dependencies": {
