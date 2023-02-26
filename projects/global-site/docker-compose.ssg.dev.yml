@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  # wiremock:
+  #   image: wiremock/wiremock
+  #   ports:
+  #     - "8443:8443"
+  #   command:
+  #     - "--https-port=8443"
+  #     - "--verbose"
+  #   volumes:
+  #     - ./src/app/libs/mocks/mappings:/home/wiremock/mappings
+  frontend:
+    platform: linux/amd64
+    build:
+      context: ../../
+      dockerfile: ./projects/global-site/dockerfiles/Dockerfile.ssg.dev
+    ports:
+      - 1864:1864
+      - 1668:1668
+    volumes:
+      - '/app/node_modules'
+      - '../../:/app'
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+
+      #https://www.matchlessly.com/server-side-rendering-ssr-of-angular-app-with-nginx-server/

@@ -1,0 +1,20 @@
+version: '3.9'
+services:
+  # wiremock:
+  #   image: wiremock/wiremock
+  #   ports:
+  #     - "8443:8443"
+  #   command:
+  #     - "--https-port=8443"
+  #     - "--verbose"
+  #   volumes:
+  #     - ./src/app/libs/mocks/mappings:/home/wiremock/mappings
+  frontend:
+    build:
+      context: ../../
+      dockerfile: ./projects/portal/dockerfiles/Dockerfile.dev
+    ports:
+      - 8102:4200
+    volumes:
+      - '/app/node_modules'
+      - '../../:/app'

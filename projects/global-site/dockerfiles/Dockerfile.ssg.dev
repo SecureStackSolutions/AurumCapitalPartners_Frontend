@@ -1,0 +1,25 @@
+### STAGE 1: Build ###
+FROM node:18-alpine3.15
+WORKDIR /app
+
+RUN apk add --no-cache \
+    chromium \
+    nss \
+    freetype \
+    freetype-dev \
+    harfbuzz \
+    ca-certificates \
+    ttf-freefont
+
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
+ENV SCULLY_PUPPETEER_EXECUTABLE_PATH '/usr/bin/chromium-browser'
+
+# Install dependencies
+COPY package*.json ./
+RUN npm i
+COPY . .
+RUN npm run build:global-site:ssg
+
+# Application metadata
+CMD npm run start:global-site:ssg
+#CMD ["npm", "run", "start:global-site:ssg"]
