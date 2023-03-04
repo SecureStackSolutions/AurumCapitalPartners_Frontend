@@ -1,13 +1,15 @@
 version: '3.9'
 services:
-  watcher:
+  mocking:
+    container_name: mock
     build:
-      context: ../../dockerfiles/wiremock
+      context: ../../dockerfiles/mocking
     ports:
       - "8080:8080"
     volumes:
       - ./src/app/libs/mocks:/mocks
   portal:
+    container_name: app
     build:
       context: ../../
       dockerfile: ./apps/portal/dockerfiles/Dockerfile.dev

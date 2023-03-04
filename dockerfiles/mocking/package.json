@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
-        "start": "concurrently \"node watcher.js\" \"npx wiremock --root-dir /mocks\""
+        "start": "concurrently -p none \"node watcher.js\" \"npx wiremock --root-dir /mocks\""
     },
     "dependencies": {
       "chokidar": "^3.5.3",
