@@ -2,7 +2,11 @@
   "name": "frontend",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start:dev:up": "docker compose -f apps/portal/docker-compose.dev.yml up",
+    "start:dev:up:build": "docker compose -f apps/portal/docker-compose.dev.yml up --build",
+    "start:dev:down": "docker compose -f apps/portal/docker-compose.dev.yml down"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~15.1.0",
@@ -40,6 +44,7 @@
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "cypress": "^12.2.0",
+    "chokidar": "^3.5.3",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",

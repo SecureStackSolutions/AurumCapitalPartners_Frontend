@@ -3,17 +3,15 @@ FROM node:18-alpine3.15
 
 WORKDIR /app
 
-# Ensure clean installation
-RUN npm cache clean --force
-
 # Install dependencies
-COPY package*.json ./
+COPY package.json ./
+COPY yarn.lock ./
 
 # ## Install python dependency (not by default in alpine version)
 RUN apk add --update python3 make g++ \
     && rm -rf /var/cache/apk/*
 
-RUN npm i
+RUN yarn
 
 COPY . .
 
