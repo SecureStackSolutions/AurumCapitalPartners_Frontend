@@ -5,7 +5,10 @@
   "scripts": {
     "start:dev:up": "docker compose -f apps/portal/docker-compose.dev.yml up",
     "start:dev:up:build": "docker compose -f apps/portal/docker-compose.dev.yml up --build",
-    "start:dev:down": "docker compose -f apps/portal/docker-compose.dev.yml down"
+    "start:dev:down": "docker compose -f apps/portal/docker-compose.dev.yml down",
+    "start:stag:up": "docker compose -f apps/portal/docker-compose.stag.yml up",
+    "start:stag:up:build": "docker compose -f apps/portal/docker-compose.stag.yml up --build",
+    "start:stag:down": "docker compose -f apps/portal/docker-compose.stag.yml down"
   },
   "private": true,
   "dependencies": {

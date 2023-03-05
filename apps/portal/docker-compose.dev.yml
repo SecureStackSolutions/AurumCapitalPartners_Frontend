@@ -5,7 +5,7 @@ services:
     build:
       context: ../../dockerfiles/mocking
     ports:
-      - "8080:8080"
+      - "8080"
     volumes:
       - ./src/app/libs/mocks:/mocks
   portal:
@@ -18,3 +18,5 @@ services:
     volumes:
       - '/app/node_modules'
       - '../../:/app'
+    depends_on:
+      - mocking
